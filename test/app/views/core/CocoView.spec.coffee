@@ -68,6 +68,8 @@ describe 'CocoView', ->
         expect(view.openModalView).toHaveBeenCalled()
 
       it 'says "Login Required"', ->
+        console.log('Login required text', view.$el.text())
+        console.log('Login required html', view.$el.html())
         expect(view.$el.text().indexOf('Login Required')).toBeGreaterThan(-1)
 
       it '(demo)', -> jasmine.demoEl(view.$el)
