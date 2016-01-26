@@ -68,9 +68,7 @@ describe 'CocoView', ->
         expect(view.openModalView).toHaveBeenCalled()
 
       it 'says "Login Required"', ->
-        console.log('Login required text', view.$el.text())
-        console.log('Login required html', view.$el.html())
-        expect(view.$el.text().indexOf('Login Required')).toBeGreaterThan(-1)
+        expect(view.$('[data-i18n="loading_error.login_required"]').length).toBeTruthy()
 
       it '(demo)', -> jasmine.demoEl(view.$el)
       
@@ -115,10 +113,10 @@ describe 'CocoView', ->
       beforeEach -> respond(408)
       
       it 'includes "Server Timeout" in the header', ->
-        expect(view.$el.text().indexOf('Server Timeout')).toBeGreaterThan(-1)
+        expect(view.$('[data-i18n="loading_error.timeout"]').length).toBeTruthy()
       
       it 'shows a message encouraging refreshing the page or following links', ->
-        expect(view.$el.text().indexOf('refresh')).toBeGreaterThan(-1)
+        expect(view.$('[data-i18n="loading_error.general_desc"]').length).toBeTruthy()
 
       it '(demo)', -> jasmine.demoEl(view.$el)
 
@@ -129,7 +127,7 @@ describe 'CocoView', ->
         respond()
 
       it 'shows "Connection Failed"', ->
-        expect(view.$el.text().indexOf('Connection Failed')).toBeGreaterThan(-1)
+        expect(view.$('[data-i18n="loading_error.connection_failure"]').length).toBeTruthy()
 
       it '(demo)', -> jasmine.demoEl(view.$el)
 
@@ -139,10 +137,10 @@ describe 'CocoView', ->
       beforeEach -> respond(9001)
 
       it 'includes "Unknown Error" in the header', ->
-        expect(view.$el.text().indexOf('Unknown Error')).toBeGreaterThan(-1)
+        expect(view.$('[data-i18n="loading_error.unknown"]').length).toBeTruthy()
 
       it 'shows a message encouraging refreshing the page or following links', ->
-        expect(view.$el.text().indexOf('refresh')).toBeGreaterThan(-1)
+        expect(view.$('[data-i18n="loading_error.general_desc"]').length).toBeTruthy()
 
       it '(demo)', -> jasmine.demoEl(view.$el)
         
